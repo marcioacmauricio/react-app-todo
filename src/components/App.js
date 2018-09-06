@@ -4,8 +4,9 @@ import Routes from './Routes'
 
 const App = () => (
 	<div>
-		<Header />
-		<Routes />
+		<Header>
+			<Routes />
+		</Header>
 	</div>
 )
 
