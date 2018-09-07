@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
 import {
 	Collapse,
 	Navbar,
@@ -31,7 +31,7 @@ export default class Header extends React.Component {
 	render() {
 		return (
 			<div>
-			<Container>
+			<Container fluid>
 					<Navbar color="light" light expand="md">
 						<NavbarBrand href="/">react-app-todo</NavbarBrand>
 						<NavbarToggler onClick={this.toggle} />
@@ -48,7 +48,7 @@ export default class Header extends React.Component {
 					</Navbar>
 
 				</Container>
-				<Container>
+				<Container fluid>
 
 					<Row>
 						<Col xs="3">
@@ -58,10 +58,10 @@ export default class Header extends React.Component {
 						<Col xs="6">
 						{this.props.children}
 						</Col>
-						<Col xs="3">.col-6</Col>
+						<Col xs="3"></Col>
 					</Row>
 				</Container>
-				<Container className="text-center footer">
+				<Container className="text-center footer" fluid>
 					footer
 				</Container>   
 			</div>
