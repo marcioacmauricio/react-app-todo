@@ -16,16 +16,18 @@ class ToDo(tornado.web.RequestHandler):
 		self.set_header('Access-Control-Allow-Origin', '*')
 		self.set_header('Access-Control-Allow-Methods', 'OPTIONS,GET,POST,PUT,PATCH,DELETE')
 		self.set_header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept')		
-
+	# view item/itens
 	def get(self, item_id=None, edit=False):
 		self.write(self.ToDo.get(int(item_id)))
+	# create item
 	def put(self, item_id):
 		self.write(self.ToDo.get(item_id))
-
+	# upate item
 	def post(self,item_id):
 		data = self.get_argument('item_data')
 		self.ToDo.update({data.get('id'): data})
 		self.write(item_id)
+	# delete item
 	def delete(self, item_id):
 		del self.ToDo[item_id]
 		self.write(str(item_id))
