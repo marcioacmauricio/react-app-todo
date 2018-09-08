@@ -13,7 +13,8 @@ const Routes = () => (
 			<Route exact path='/' component={Home}/>
 			<Route path='/ToDoList' component={ToDoList}/>
 			<Route path='/ToDoNew' component={ToDoEdit}/>
-			<Route path='/ToDoView' component={ToDoView}/>
+			<Route path='/ToDoEdit/:id' component={ToDoEdit}/>
+			<Route path='/ToDoView/:id' component={ToDoView}/>
 		</Switch>
 	</main>
 )

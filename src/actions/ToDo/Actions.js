@@ -33,8 +33,8 @@ export const readToDo = (ToDoId) => dispatch => {
 }
 
 export const updateToDo = (todoData) => dispatch => {
-	fetch('http://localhost:8081/ToDo', { 
-		method : 'POST',
+	fetch('http://localhost:8081/ToDo/' + todoData.id, { 
+		method : 'PUT',
 			headers : {
 				'content-type': 'Application/json'
 			},
@@ -70,13 +70,19 @@ export const deleteToDo = (todoData) => dispatch => {
 	);
 }
 
-export const fetchToDo = () => dispatch => {
-	fetch('http://localhost:8081/ToDo')
-	.then(
-		res => res.json()
-	)
-	.then(
-		ToDoList => dispatch({
+export const fetchToDo = (todoData) => dispatch => {
+	fetch('http://localhost:8081/ToDo', { 
+		method : 'POST',
+			headers : {
+				'content-type': 'Application/json'
+			},
+			body: JSON.stringify(todoData)
+		})
+		.then(
+			res => res.json()
+		)
+		.then(
+			ToDoList => dispatch({
 			type: FETCH_TODO,
 			payload: ToDoList
 		})
